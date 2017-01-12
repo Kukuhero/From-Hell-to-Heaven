@@ -27,7 +27,7 @@ public class CharacterController : MonoBehaviour {
         {
             if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") != 0)
             {
-                Vector3 richVector = Vectorberechnung(transform.position, hit.point);
+                Vector3 richVector = Vectorberechnung(transform.position, new Vector3(hit.point.x,transform.position.y,hit.point.z));
                 transform.position += Vectornormieren(richVector) * Input.GetAxis("Vertical") * speed + 
                     Vectornormieren(Normalenvectorberechnung(richVector))* Input.GetAxis("Horizontal") * speed;
 
