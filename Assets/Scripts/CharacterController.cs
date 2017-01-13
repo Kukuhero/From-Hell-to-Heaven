@@ -34,12 +34,14 @@ public class CharacterController : MonoBehaviour {
                     Vectornormieren(Normalenvectorberechnung(transform.forward))* Input.GetAxis("Horizontal") * speed* 1/Mathf.Sqrt(2f);
             }
 
+
         if( Input.GetMouseButtonDown(0))
         {
             Instantiate(Fireprojektil, FireSpawnpoint.position, transform.rotation);
         }
         
 	
+
 	}
 
     Vector3 Vectorberechnung(Vector3 start, Vector3 ziel)
