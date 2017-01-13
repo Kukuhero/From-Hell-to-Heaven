@@ -38,10 +38,8 @@ public class CharacterController : MonoBehaviour {
                 transform.position += Vectornormieren(richVector) * Input.GetAxis("Vertical") * speed + 
                     Vectornormieren(Normalenvectorberechnung(richVector))* Input.GetAxis("Horizontal") * speed* 1/Mathf.Sqrt(2f);
             }
-			transform.FindChild ("AimCircle").position = hit.point;
         }
 	
-
 	}
 
     Vector3 Vectorberechnung(Vector3 start, Vector3 ziel)
