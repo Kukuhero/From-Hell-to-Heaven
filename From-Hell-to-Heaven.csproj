@@ -93,6 +93,9 @@
     <Compile Include="Assets\Scripts\CaneraController.cs" />
     <Compile Include="Assets\Scripts\CharacterController.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\FireprojektilController.cs" />
+    <Compile Include="Assets\Scripts\FireprojektilEnemyController.cs" />
+    <Compile Include="Assets\Scripts\Health.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

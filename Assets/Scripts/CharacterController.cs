@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class CharacterController : MonoBehaviour {
-    public float speed; 
+    public float speed;
+    public Transform FireSpawnpoint;
+    public GameObject Fireprojektil;
 
 	// Use this for initialization
 	void Start () {
@@ -15,30 +17,28 @@ public class CharacterController : MonoBehaviour {
         rotationVector.y += Input.GetAxis("Mouse X") * 10;
         gameObject.transform.rotation = Quaternion.Euler(rotationVector);
         
-        /*
-        Vector3 position = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 direction = Input.mousePosition - position;
-        float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);*/
+       
 
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 80f))
-        {
+       
             if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") != 0)
             {
-                Vector3 richVector = Vectorberechnung(transform.position, new Vector3(hit.point.x,transform.position.y,hit.point.z));
-                transform.position += Vectornormieren(richVector) * Input.GetAxis("Vertical") * speed + 
-                    Vectornormieren(Normalenvectorberechnung(richVector))* Input.GetAxis("Horizontal") * speed;
+                
+                transform.position += Vectornormieren(transform.forward) * Input.GetAxis("Vertical") * speed + 
+                    Vectornormieren(Normalenvectorberechnung(transform.forward))* Input.GetAxis("Horizontal") * speed;
 
             }
             if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Horizontal") != 0)
             {
-                Vector3 richVector = Vectorberechnung(transform.position, hit.point);
-                transform.position += Vectornormieren(richVector) * Input.GetAxis("Vertical") * speed + 
-                    Vectornormieren(Normalenvectorberechnung(richVector))* Input.GetAxis("Horizontal") * speed* 1/Mathf.Sqrt(2f);
+                
+                transform.position += Vectornormieren(transform.forward) * Input.GetAxis("Vertical") * speed + 
+                    Vectornormieren(Normalenvectorberechnung(transform.forward))* Input.GetAxis("Horizontal") * speed* 1/Mathf.Sqrt(2f);
             }
+
+        if( Input.GetMouseButtonDown(0))
+        {
+            Instantiate(Fireprojektil, FireSpawnpoint.position, transform.rotation);
         }
+        
 	
 	}
 
