@@ -1,27 +1,15 @@
 fileFormatVersion: 2
 guid: 9840ec086819c9040a5a419e44183508
-timeCreated: 1484323341
+timeCreated: 1484581016
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Circle
-    100002: Circle.001
-    100004: Circle.002
-    100006: //RootNode
-    400000: Circle
-    400002: Circle.001
-    400004: Circle.002
-    400006: //RootNode
-    2300000: Circle
-    2300002: Circle.001
-    2300004: Circle.002
-    3300000: Circle
-    3300002: Circle.001
-    3300004: Circle.002
-    4300000: Circle.002
-    4300002: Circle.001
-    4300004: Circle
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Circle
   materials:
     importMaterials: 1
     materialName: 2
@@ -46,7 +34,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.5
+    globalScale: 0.4
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
