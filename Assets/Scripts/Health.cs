@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
     public float health;
-    private float maxhealth;
+    public float maxhealth;
     private Vector3 screenPos;
     public Texture2D healthTexture;
     private int Position = 30;
-    public GameObject Player;
+
 
 	// Use this for initialization
 	void Start () {
@@ -20,21 +20,19 @@ public class Health : MonoBehaviour {
 	void Update () {
         if( health <= 0)
         {
-            Destroy(gameObject);
+			health = 0;
+			StartCoroutine (Destroy ());
         }
 		
 	}
 
-    private void OnGUI()
-    {
-        if (health != maxhealth && Vectorlaenge(Vectorberechnung(transform.position, Player.transform.position)) <= 10f)
-        {
-            screenPos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-            GUI.DrawTexture(new Rect(screenPos.x - 40, Screen.height - screenPos.y - Position, health, 5), healthTexture);
-            GUI.color = Color.white;
-            GUI.Label(new Rect(screenPos.x - 35, Screen.height - screenPos.y - Position, 50, 30), "" + health + "/" + maxhealth);
-        }
-    }
+	IEnumerator Destroy()
+	{
+		yield return new WaitForSeconds(10f);
+		Destroy(gameObject);
+	}
+
+   
     Vector3 Vectorberechnung(Vector3 start, Vector3 ziel)
     {
         return new Vector3(ziel.x - start.x, ziel.y - start.y, ziel.z - start.z);

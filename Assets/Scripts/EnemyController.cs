@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour {
     int i = 0;
     bool shoot = false;
     GameObject target;
+    public int lvl;
 
 	// Use this for initialization
 	void Start () {

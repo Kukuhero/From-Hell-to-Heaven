@@ -3,41 +3,95 @@ using System.Collections;
 
 public class CharacterController : MonoBehaviour {
     public float speed;
-    public Transform FireSpawnpoint;
-    public GameObject Fireprojektil;
+    public Transform Weaponspawnpoint;
+    GameObject Weapon;
+    int Invnumb =0;
+    bool firstWeapon = true;
+    public Animator anim;
+    public int lvl;
 
 	// Use this for initialization
 	void Start () {
+        if (transform.GetComponent<Inventar>().inventar[0] != null)
+        {
+            Weapon = transform.GetComponent<Inventar>().inventar[0];
+            Instantiate(Weapon, Weaponspawnpoint.position, transform.rotation, Weaponspawnpoint);
+           
+        }
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        Animation();
         Vector3 rotationVector = transform.rotation.eulerAngles;
         rotationVector.y += Input.GetAxis("Mouse X") * 10;
         gameObject.transform.rotation = Quaternion.Euler(rotationVector);
-        
-       
 
-       
-            if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") != 0)
+
+        if (transform.GetComponent<Inventar>().inventar[0] != null && firstWeapon == true)
+        {
+            Weapon = transform.GetComponent<Inventar>().inventar[0];
+            Instantiate(Weapon, Weaponspawnpoint.position, transform.rotation, Weaponspawnpoint);
+            
+            firstWeapon = false;
+        }
+
+
+        if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Horizontal") == 0 || Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") != 0)
             {
-                
-                transform.position += Vectornormieren(transform.forward) * Input.GetAxis("Vertical") * speed + 
-                    Vectornormieren(Normalenvectorberechnung(transform.forward))* Input.GetAxis("Horizontal") * speed;
-
-            }
+            
+                transform.position += (Vectornormieren(transform.forward) * Input.GetAxis("Vertical") * speed + 
+                    Vectornormieren(Normalenvectorberechnung(transform.forward))* Input.GetAxis("Horizontal") * speed) * Time.deltaTime;
+        }
+       
             if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Horizontal") != 0)
             {
-                
-                transform.position += Vectornormieren(transform.forward) * Input.GetAxis("Vertical") * speed + 
-                    Vectornormieren(Normalenvectorberechnung(transform.forward))* Input.GetAxis("Horizontal") * speed* 1/Mathf.Sqrt(2f);
+            transform.position += (Vectornormieren(transform.forward) * Input.GetAxis("Vertical") * speed + 
+                    Vectornormieren(Normalenvectorberechnung(transform.forward))* Input.GetAxis("Horizontal") * speed)* 1/Mathf.Sqrt(2f)*Time.deltaTime;
             }
+        
 
 
         if( Input.GetMouseButtonDown(0))
         {
-            Instantiate(Fireprojektil, FireSpawnpoint.position, transform.rotation);
+            transform.FindChild("Weaponspawnpoint").GetChild(0).gameObject.GetComponent<WeaponController>().shoot = true;
+        }
+
+        if(Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+            Destroy(transform.FindChild("Weaponspawnpoint").GetChild(0).gameObject);
+            if(Input.GetAxis("Mouse ScrollWheel")<0)
+            {
+                Invnumb--;
+                if(Invnumb < 0)
+                {
+                    int i = 0;
+                    while( i<= 20 && transform.GetComponent<Inventar>().inventar[i] !=null)
+                    {
+                        i++;
+                    }
+                    i--;
+                    Invnumb = i;
+                    print("(CC) Invnumb: " + Invnumb);
+                }
+                Weapon = transform.GetComponent<Inventar>().inventar[Invnumb];
+                Instantiate(Weapon, Weaponspawnpoint.position, transform.rotation, Weaponspawnpoint);
+              
+
+
+            }
+            else
+            {
+                Invnumb++;
+                if(transform.GetComponent<Inventar>().inventar[Invnumb]==null)
+                {
+                    Invnumb = 0;
+                }
+                Weapon = transform.GetComponent<Inventar>().inventar[Invnumb];
+                Instantiate(Weapon, Weaponspawnpoint.position, transform.rotation, Weaponspawnpoint);
+              
+            }
         }
         
 	
@@ -63,5 +117,29 @@ public class CharacterController : MonoBehaviour {
     {
         float Länge = Mathf.Sqrt (vector.x * vector.x + vector.y * vector.y + vector.z * vector.z);
         return (1 / Länge) * vector; 
+    }
+    void Animation()
+    {
+        if(Input.GetAxis("Vertical")> 0)
+        {
+            anim.SetBool("Walk", true);
+        }
+        else
+        {
+            anim.SetBool("Walk", false);
+        }
+
+        if (Input.GetAxis("Vertical") < 0)
+        {
+            anim.SetBool("Back", true);
+        }
+        else
+        {
+            anim.SetBool("Back", false);
+        }
+        if(!firstWeapon )
+        {
+            anim.SetBool("Weapon", true);
+        }
     }
 }

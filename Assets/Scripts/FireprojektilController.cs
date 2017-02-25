@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class FireprojektilController : MonoBehaviour {
     Vector3 richVector;
-    public float speed;
+    public float speed ;
     GameObject schongetroffen;
-	// Use this for initialization
-	void Start () {
-        //richVector =Vectornormieren(transform.parent.parent.parent.transform.forward);
+    float step;
+    // Use this for initialization
+    void Start () {
+        step = speed * Time.deltaTime;
         StartCoroutine(Destroy());
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-       // print(richVector);
-       float step = speed * Time.deltaTime;
+        
         transform.position += transform.forward * step;
         
 		
@@ -27,14 +27,19 @@ public class FireprojektilController : MonoBehaviour {
         {
             case "Wall":
                 print("Fire hit Wall(Fireprojektil)");
-                Destroy(gameObject);
+                step = 0;
+                
                 break;
 
             case "Enemy":
-                print("Enemy hit (shoot) " + other.gameObject.name);
-                if(other.gameObject != schongetroffen)
-                other.GetComponent<Health>().health -= 5f;
-                schongetroffen = other.gameObject;
+
+                if (!other.isTrigger)
+                {
+                    //print("Enemy hit (shoot) " + other);
+				if (other.gameObject != schongetroffen)
+                        other.GetComponent<Health>().health -= 5f;
+                    schongetroffen = other.gameObject;
+                }
                 break;
         }
     }

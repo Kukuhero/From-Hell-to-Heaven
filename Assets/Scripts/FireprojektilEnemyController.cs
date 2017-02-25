@@ -21,7 +21,6 @@ public class FireprojektilEnemyController : MonoBehaviour {
         float step = speed * Time.deltaTime;
         transform.position += transform.forward * step;
 
-
     }
     private void OnTriggerEnter(Collider other)
     {
