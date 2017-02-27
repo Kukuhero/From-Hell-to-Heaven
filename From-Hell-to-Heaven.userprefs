@@ -2,12 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Skeleton_VikingEnemyController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Skeleton_VikingEnemyController.cs" Line="63" Column="18" />
-      <File FileName="Assets\Scripts\Health.cs" Line="7" Column="19" />
+      <File FileName="Assets\Scripts\Skeleton_VikingEnemyController.cs" Line="69" Column="8" />
+      <File FileName="Assets\Scripts\Health.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\FireprojektilController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CharacterController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\EnemySpawnController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\HealthbarController.cs" Line="28" Column="54" />
+      <File FileName="Assets\Scripts\PlayerHealthbarController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
