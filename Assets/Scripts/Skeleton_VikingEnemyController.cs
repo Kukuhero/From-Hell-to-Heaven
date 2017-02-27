@@ -7,7 +7,6 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
     Vector3 Richtungsvector;
     public float speed;
     float originalspeed;
-    int i = 0;
     bool attack = false;
     GameObject target;
     public int lvl;
@@ -15,18 +14,34 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
     bool walk = true;
 	bool dead= false;
 	bool inattack = false;
+	public Transform[] Waypoints = new Transform[10];
+	int x = -1;
+	int anzahl = 0;
+	bool forward = true;
+	int ii = 0;
+	public bool Kreislaufen;
 
     // Use this for initialization
     void Start()
     {
-        originalspeed = speed;
-			InvokeRepeating ("Richtungswechsel", 2f, Random.Range (1f, 4f));
+		originalspeed = speed;
+		anzahl = Waypoints.Length;
+
+		Waypointwalk ();
+
+
+			
+    
+			//InvokeRepeating ("Richtungswechsel", 2f, Random.Range (1f, 4f));
     }
 
     // Update is called once per frame
     void Update()
 	{
-		
+		//print (Waypoints[x].name);
+		print (Richtungsvector);
+		print (x);
+		print (anzahl);
 
 		if (gameObject.GetComponent<Health> ().health == 0 && !dead) 
 		{
@@ -39,6 +54,12 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 			{
 				transform.position += Richtungsvector * speed * Time.deltaTime;
 				anim.SetBool ("walk", true);
+				//print(Vectorlaenge(Vectorberechnung(transform.position,Waypoints[x].transform.position)));
+				//if (i != 0 && transform.position.x*0.8f >= Waypoints [x].transform.position.x && transform.position.z*0.8f >= Waypoints[x].transform.position.z )
+				if(Vectorlaenge(Vectorberechnung(transform.position,Waypoints[x].transform.position)) <= 2f)
+				{
+					Waypointwalk ();
+				}
 			}
 
 			float angle = Mathf.Atan2 (Richtungsvector.x, Richtungsvector.z) * Mathf.Rad2Deg;
@@ -78,30 +99,29 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 
         switch (other.transform.tag)
         {
-            case "Wall":
-                print("WallinTrigger(Enemy)");
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, Richtungsvector, out hit, 10f))
-                {
-                    print("Wall in my way (Enemy)");
-                    Richtungsvector = Normalenvectorberechnung(Richtungsvector);
-                    if (Physics.Raycast(transform.position, Richtungsvector, out hit, 10f))
-                    {
-                        Richtungsvector = -Richtungsvector;
-                    }
-                }
-                break;
-            case "Player":
-                if (!other.isTrigger)
-                {
-                    attack = true;
+		case "Wall":
+			print ("WallinTrigger(Enemy)");
+			RaycastHit hit;
+			if (Physics.Raycast (transform.position, Richtungsvector, out hit, 10f)) {
+				print ("Wall in my way (Enemy)");
+				//Richtungsvector = Normalenvectorberechnung(Richtungsvector);
+				if (Physics.Raycast (transform.position, Richtungsvector, out hit, 10f)) {
+					// Richtungsvector = -Richtungsvector;
+				}
+			}
+		break;
+
+        case "Player":
+            if (!other.isTrigger)
+            {
+           		attack = true;
 				print ("Enemy: Spieler in Sicht");
-                    target = other.transform.gameObject;
-                    float angle = Mathf.Atan2(Richtungsvector.x, Richtungsvector.z) * Mathf.Rad2Deg;
-                    transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+                target = other.transform.gameObject;
+                float angle = Mathf.Atan2(Richtungsvector.x, Richtungsvector.z) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
 				transform.position += Richtungsvector * speed * Time.deltaTime;
-                }
-                break;
+            }
+        break;
         }
     }
 
@@ -150,11 +170,41 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
     void Richtungswechsel()
     {
 		
-			
+
 			Richtungsvector = Vectornormieren (new Vector3 (Random.Range (-1f, 1f), 0, Random.Range (-1f, 1f)));
+
             
 
       }
+
+	void Waypointwalk()
+	{
+		print ("in Waypointwalk");
+		if (x+1 < anzahl && forward) 
+		{
+			x++;
+			Richtungsvector = Vectornormieren(new Vector3(Waypoints [x].position.x,0f,Waypoints[x].position.z)-transform.position);
+
+
+		} else 
+		{
+			Richtungsvector = Vectornormieren(new Vector3(Waypoints [x].position.x,0f,Waypoints[x].position.z)-transform.position);
+			x--;
+			forward = false;
+			if (Kreislaufen) 
+			{
+				x = 0;
+				Richtungsvector = Vectornormieren (new Vector3 (Waypoints [x].position.x, 0f, Waypoints [x].position.z) - transform.position);
+				forward = true;
+			}
+
+
+		}
+		if (x == 0) 
+		{
+			forward = true;
+		}
+	}
     
     Vector3 Vectornormieren(Vector3 vector)
     {
