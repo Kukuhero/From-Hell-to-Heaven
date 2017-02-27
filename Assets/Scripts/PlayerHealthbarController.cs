@@ -25,7 +25,7 @@ public class PlayerHealthbarController : MonoBehaviour {
 	void Barchange ()
 	{
 		playerhealth = gameObject.transform.parent.parent.GetComponent<Health> ().health;
-		print ("playerhealth" + playerhealth + ", maxhealth:" + maxPlayerhealth);
+		//print ("playerhealth" + playerhealth + ", maxhealth:" + maxPlayerhealth);
 		content.fillAmount = (playerhealth/maxPlayerhealth);
 		if (content.fillAmount > 0.7f) 
 		{

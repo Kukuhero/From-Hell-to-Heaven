@@ -66,7 +66,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 					CancelInvoke ("Attack");
 					anim.SetBool("attack1", false);
 					anim.SetBool("attack2", false);
-					anim.SetBool("attack3", false);
+					//anim.SetBool("attack3", false);
 				}
 
 			}
