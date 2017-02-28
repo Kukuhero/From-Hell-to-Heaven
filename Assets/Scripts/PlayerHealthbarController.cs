@@ -12,7 +12,7 @@ public class PlayerHealthbarController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		maxPlayerhealth = gameObject.transform.parent.parent.GetComponent<Health> ().maxhealth;
+		maxPlayerhealth = gameObject.transform.parent.parent.GetComponent<Health> ().health;
 		content.color = Color.green;
 	}
 	

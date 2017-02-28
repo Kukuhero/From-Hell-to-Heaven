@@ -121,6 +121,7 @@
      <Compile Include="Assets\Scripts\Skeleton_VikingEnemyController.cs" />
      <Compile Include="Assets\Scripts\WeaponController.cs" />
      <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
+     <Compile Include="Assets\Scripts\vikingswordController.cs" />
      <None Include="Assets\KriptoFX\Shaders\ExplosionsDistortionParticlesCutout.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

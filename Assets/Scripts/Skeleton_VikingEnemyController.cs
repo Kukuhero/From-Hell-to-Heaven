@@ -18,13 +18,19 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 	int x = -1;
 	int anzahl = 0;
 	bool forward = true;
-	int ii = 0;
+	//int ii = 0;
 	public bool Kreislaufen;
 	bool searching = false;
+	public float damage1;
+	public float damage2;
+	public float damage3;
+	public GameObject Sword;
+	float ii;
 
     // Use this for initialization
     void Start()
     {
+		speed = 4f;
 		originalspeed = speed;
 		anzahl = Waypoints.Length;
 
@@ -56,9 +62,9 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 				}
 			}
 		}
-		//print (Waypoints[x].name);
-		print (Richtungsvector);
-		//print (x);
+		//print (speed);
+		//print (Richtungsvector);
+		print (target.GetComponent<Health> ().health);
 		//print (anzahl);
 
 		if (gameObject.GetComponent<Health> ().health == 0 && !dead) 
@@ -74,7 +80,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 				anim.SetBool ("walk", true);
 				//print(Vectorlaenge(Vectorberechnung(transform.position,Waypoints[x].transform.position)));
 				//if (i != 0 && transform.position.x*0.8f >= Waypoints [x].transform.position.x && transform.position.z*0.8f >= Waypoints[x].transform.position.z )
-				if (Vectorlaenge (Vectorberechnung (transform.position, Waypoints [x].transform.position)) <= 2f) {
+				if (Vectorlaenge (Vectorberechnung (transform.position, Waypoints [x].transform.position)) <= 2f && !attack) {
 					Waypointwalk ();
 				}
 			} else 
@@ -87,13 +93,18 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 
 			if (attack) 
 			{
+				
+
 				CancelInvoke ("Richtungswechsel");
+				//print (Vectornormieren (Vectorberechnung (transform.position, target.transform.position)));
 				Richtungsvector = Vectornormieren (Vectorberechnung (transform.position, target.transform.position));
-				if (Vectorlaenge (Vectorberechnung (transform.position, target.transform.position)) <= 2.5f) 
+				if (Vectorlaenge (Vectorberechnung (transform.position, target.transform.position)) <= 2f) 
 				{
+					print ("Enemy: Spieler vor mir");
 					speed = 0;
 					anim.SetBool ("walk", false);
-					if (!inattack) {
+					if (!inattack) 
+					{
 						inattack = true;
 						InvokeRepeating ("Attack", 0f, 3f);
 					}
@@ -132,10 +143,15 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 		break;
 
         case "Player":
-            if (!other.isTrigger)
+			if (!other.isTrigger && other.name == "Player" && other.gameObject != target)
             {
-				searching = true;
+					//searching = true;
                		target = other.transform.gameObject;
+					attack = true;
+					print ("Enemy: Spieler gefunden");
+					float angle = Mathf.Atan2(Richtungsvector.x, Richtungsvector.z) * Mathf.Rad2Deg;
+					transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+					//transform.position += Richtungsvector * speed * Time.deltaTime;
             }
         break;
         }
@@ -145,13 +161,15 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-		if (other.tag == "Player" && !other.isTrigger)
+		if (other.name == "Player" && !other.isTrigger && other.gameObject != target)
         {
+			print ("Enemy: Spiler verlässt Trigger");
 			searching = false;
             speed = originalspeed;
             attack = false;
             walk = true;
-			InvokeRepeating ("Walk", 0f, Random.Range (1f, 4f));
+			x = 0;
+			//InvokeRepeating ("Walk", 0f, Random.Range (1f, 4f));
 			CancelInvoke ("Attack");
 			inattack = false;
 			anim.SetBool("attack1", false);
@@ -166,7 +184,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 		anim.SetBool("attack2", false);
 		anim.SetBool("attack3", false);
 		print ("inattack");
-            float ii = Mathf.Round(Random.Range(1f, 1f));
+            ii = Mathf.Round(Random.Range(1f, 1f));
 
             if (ii == 1f)
             {
@@ -188,7 +206,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
     {
 		
 
-			Richtungsvector = Vectornormieren (new Vector3 (Random.Range (-1f, 1f), 0, Random.Range (-1f, 1f)));
+			//Richtungsvector = Vectornormieren (new Vector3 (Random.Range (-1f, 1f), 0, Random.Range (-1f, 1f)));
 
             
 
