@@ -60,7 +60,7 @@ public class CharacterController : MonoBehaviour {
                     Vectornormieren(Normalenvectorberechnung(transform.forward))* Input.GetAxis("Horizontal") * speed)* 1/Mathf.Sqrt(2f)*Time.deltaTime;
             }
         
-		if (Input.GetKeyDown (KeyCode.LeftShift)&&dashavailable) 
+		if (Input.GetKeyUp (KeyCode.LeftShift)&&dashavailable) 
 		{
 			speed += dashspeedadd;
 			oldcounter = counter;
