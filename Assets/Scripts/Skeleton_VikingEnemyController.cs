@@ -20,6 +20,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 	bool forward = true;
 	int ii = 0;
 	public bool Kreislaufen;
+	bool searching = false;
 
     // Use this for initialization
     void Start()
@@ -38,10 +39,27 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
 	{
+		if (searching) 
+		{
+			RaycastHit hit2;
+			//if (Physics.Raycast (transform.position, target.transform.position, out hit2, 10f)) 
+			{
+				
+				//if (hit2.transform.tag == "Player") transform.position vom Player ist nicht Position vom Player, wird mit eigenem Modell gefixt
+				{
+					
+					attack = true;
+					print ("Enemy: Spieler gefunden");
+					float angle = Mathf.Atan2(Richtungsvector.x, Richtungsvector.z) * Mathf.Rad2Deg;
+					transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+					//transform.position += Richtungsvector * speed * Time.deltaTime;
+				}
+			}
+		}
 		//print (Waypoints[x].name);
 		print (Richtungsvector);
-		print (x);
-		print (anzahl);
+		//print (x);
+		//print (anzahl);
 
 		if (gameObject.GetComponent<Health> ().health == 0 && !dead) 
 		{
@@ -50,16 +68,18 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 		}
 		if (!dead) 
 		{
-			if (walk) 
+			if (walk)
 			{
 				transform.position += Richtungsvector * speed * Time.deltaTime;
 				anim.SetBool ("walk", true);
 				//print(Vectorlaenge(Vectorberechnung(transform.position,Waypoints[x].transform.position)));
 				//if (i != 0 && transform.position.x*0.8f >= Waypoints [x].transform.position.x && transform.position.z*0.8f >= Waypoints[x].transform.position.z )
-				if(Vectorlaenge(Vectorberechnung(transform.position,Waypoints[x].transform.position)) <= 2f)
-				{
+				if (Vectorlaenge (Vectorberechnung (transform.position, Waypoints [x].transform.position)) <= 2f) {
 					Waypointwalk ();
 				}
+			} else 
+			{
+				anim.SetBool ("walk", false);
 			}
 
 			float angle = Mathf.Atan2 (Richtungsvector.x, Richtungsvector.z) * Mathf.Rad2Deg;
@@ -114,12 +134,8 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
         case "Player":
             if (!other.isTrigger)
             {
-           		attack = true;
-				print ("Enemy: Spieler in Sicht");
-                target = other.transform.gameObject;
-                float angle = Mathf.Atan2(Richtungsvector.x, Richtungsvector.z) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
-				transform.position += Richtungsvector * speed * Time.deltaTime;
+				searching = true;
+               		target = other.transform.gameObject;
             }
         break;
         }
@@ -131,6 +147,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
     {
 		if (other.tag == "Player" && !other.isTrigger)
         {
+			searching = false;
             speed = originalspeed;
             attack = false;
             walk = true;
@@ -188,8 +205,8 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 
 		} else 
 		{
-			Richtungsvector = Vectornormieren(new Vector3(Waypoints [x].position.x,0f,Waypoints[x].position.z)-transform.position);
 			x--;
+			Richtungsvector = Vectornormieren(new Vector3(Waypoints [x].position.x,0f,Waypoints[x].position.z)-transform.position);
 			forward = false;
 			if (Kreislaufen) 
 			{
@@ -197,13 +214,19 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 				Richtungsvector = Vectornormieren (new Vector3 (Waypoints [x].position.x, 0f, Waypoints [x].position.z) - transform.position);
 				forward = true;
 			}
-
-
 		}
 		if (x == 0) 
 		{
 			forward = true;
 		}
+
+			walk = false;
+		Invoke ("Wait", Random.Range(2,4));
+
+	}
+	void Wait()
+	{
+		walk = true;
 	}
     
     Vector3 Vectornormieren(Vector3 vector)
