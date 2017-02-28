@@ -5,10 +5,11 @@ public class CharacterController : MonoBehaviour {
     public float speed;
     public Transform Weaponspawnpoint;
     GameObject Weapon;
-    int Invnumb =0;
+    int Invnumb = 0,counter = 0,oldcounter=-20;
     bool firstWeapon = true;
     public Animator anim;
-    public int lvl;
+    public int lvl, dashlenght, dashspeedadd, dashcooldown;
+	private bool dashavailable = true;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +24,14 @@ public class CharacterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+		counter++;
+
+		if (counter-oldcounter==dashcooldown) 
+		{
+			dashavailable = true;
+		}
+
         Animation();
         Vector3 rotationVector = transform.rotation.eulerAngles;
         rotationVector.y += Input.GetAxis("Mouse X") * 10;
@@ -51,7 +60,17 @@ public class CharacterController : MonoBehaviour {
                     Vectornormieren(Normalenvectorberechnung(transform.forward))* Input.GetAxis("Horizontal") * speed)* 1/Mathf.Sqrt(2f)*Time.deltaTime;
             }
         
+		if (Input.GetKeyDown (KeyCode.LeftShift)&&dashavailable) 
+		{
+			speed += dashspeedadd;
+			oldcounter = counter;
+			dashavailable = false;
+		}
 
+		if (counter - oldcounter == dashlenght) 
+		{
+			speed -= dashspeedadd;
+		}
 
         if( Input.GetMouseButtonDown(0))
         {
