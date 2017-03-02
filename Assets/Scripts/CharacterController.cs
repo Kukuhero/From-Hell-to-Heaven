@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CharacterController : MonoBehaviour {
-    public float speed;
+    public int speed;
     public Transform Weaponspawnpoint;
     GameObject Weapon;
     int Invnumb = 0,counter = 0,oldcounter=-20;
@@ -10,7 +10,7 @@ public class CharacterController : MonoBehaviour {
     public Animator anim;
     public int lvl, dashlenght, dashspeedadd, dashcooldown;
 	private bool dashavailable = true;
-
+	private int normalspeed;
 	// Use this for initialization
 	void Start () {
         if (transform.GetComponent<Inventar>().inventar[0] != null)
@@ -19,7 +19,7 @@ public class CharacterController : MonoBehaviour {
             Instantiate(Weapon, Weaponspawnpoint.position, transform.rotation, Weaponspawnpoint);
            
         }
-	
+		normalspeed = speed;
 	}
 	
 	// Update is called once per frame
@@ -69,7 +69,7 @@ public class CharacterController : MonoBehaviour {
 
 		if (counter - oldcounter == dashlenght) 
 		{
-			speed -= dashspeedadd;
+			speed = normalspeed;
 		}
 
         if( Input.GetMouseButtonDown(0))
@@ -161,4 +161,13 @@ public class CharacterController : MonoBehaviour {
             anim.SetBool("Weapon", true);
         }
     }
+
+	void OnCollisionEnter (Collision col)
+	{
+		if(col.gameObject.tag == "Wall")
+		{
+			speed = normalspeed;
+		}
+	}
+
 }
