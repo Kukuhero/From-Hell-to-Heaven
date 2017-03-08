@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Healthbarpositioning : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	public Transform camera;
 	
 	// Update is called once per frame
 	void Update () {
-		//Vector3 wantedPos = Camera.main.WorldToViewportPoint (gameObject.transform.position);
-		//transform.position = wantedPos;
-		//print (wantedPos);
+		Vector3 targetDir = camera.position - transform.position;
+		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 100F, 0.0F);
+		transform.rotation = Quaternion.LookRotation(newDir);
 	}
 }
