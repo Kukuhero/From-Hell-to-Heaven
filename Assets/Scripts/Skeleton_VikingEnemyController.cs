@@ -64,7 +64,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 		}
 		//print (speed);
 		//print (Richtungsvector);
-		print (target.GetComponent<Health> ().health);
+		//print (target.GetComponent<Health> ().health);
 		//print (anzahl);
 
 		if (gameObject.GetComponent<Health> ().health == 0 && !dead) 

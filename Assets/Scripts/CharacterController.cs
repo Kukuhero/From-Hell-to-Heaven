@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CharacterController : MonoBehaviour {
-    public int speed;
+    private float speed;
     public Transform Weaponspawnpoint;
     GameObject Weapon;
     int Invnumb = 0,counter = 0,oldcounter=-20;
@@ -10,9 +10,10 @@ public class CharacterController : MonoBehaviour {
     public Animator anim;
     public int lvl, dashlenght, dashspeedadd, dashcooldown;
 	private bool dashavailable = true;
-	private int normalspeed;
+	private float normalspeed;
 	// Use this for initialization
 	void Start () {
+        speed = transform.GetComponent<CharacterStats>().speed;
         if (transform.GetComponent<Inventar>().inventar[0] != null)
         {
             Weapon = transform.GetComponent<Inventar>().inventar[0];
