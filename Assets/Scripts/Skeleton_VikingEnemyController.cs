@@ -70,6 +70,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 		if (gameObject.GetComponent<Health> ().health == 0 && !dead) 
 		{
 			dead = true;
+			transform.GetComponent<Drops> ().onDeath ();
 			anim.SetFloat ("life", gameObject.GetComponent<Health> ().health);
 		}
 		if (!dead) 

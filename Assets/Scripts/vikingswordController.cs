@@ -16,9 +16,10 @@ public class vikingswordController : MonoBehaviour {
 	{
 		if (!other.isTrigger && other.transform.tag == "Player") 
 		{
-            other.GetComponent<Health>().health -= -other.GetComponent<CharacterStats>().fireResistance + transform.root.GetComponent<EnemyStats>().fire;
-            other.GetComponent<Health>().health -= -other.GetComponent<CharacterStats>().waterResistance + transform.root.GetComponent<EnemyStats>().light;
-            other.GetComponent<Health>().health -= -other.GetComponent<CharacterStats>().shadowResistance + transform.root.GetComponent<EnemyStats>().damage;
+			print (transform.root);
+			other.GetComponent<CharacterStats>().health -= -other.GetComponent<CharacterStats>().fireResistance + transform.root.GetComponent<EnemyStats>().fire;
+			other.GetComponent<CharacterStats>().health -= -other.GetComponent<CharacterStats>().waterResistance + transform.root.GetComponent<EnemyStats>().light;
+			other.GetComponent<CharacterStats>().health -= -other.GetComponent<CharacterStats>().shadowResistance + transform.root.GetComponent<EnemyStats>().damage;
 			hit = true;
 		}
 	}
