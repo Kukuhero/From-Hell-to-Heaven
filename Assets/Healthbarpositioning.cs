@@ -10,6 +10,7 @@ public class Healthbarpositioning : MonoBehaviour {
 	void Update () {
 		Vector3 targetDir = camera.position - transform.position;
 		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 100F, 0.0F);
-		transform.rotation = Quaternion.LookRotation(newDir);
+		Debug.DrawRay(transform.position, newDir, Color.red);
+		transform.parent.rotation = Quaternion.LookRotation(newDir);
 	}
 }
