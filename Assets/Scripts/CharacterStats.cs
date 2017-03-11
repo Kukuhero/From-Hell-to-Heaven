@@ -14,8 +14,10 @@ public class CharacterStats : MonoBehaviour {
     public float dashSpeed;
     public float dashTime;
 	public float gold;
-	public float xp;
-	public int lvl;
+	public float xphell;
+	public float xpheaven;
+	public int lvlhell;
+	public int lvlheaven;
 
 	// Use this for initialization
 	void Start () {
@@ -31,11 +33,17 @@ public class CharacterStats : MonoBehaviour {
 			health = 0;
 			StartCoroutine (Destroy ());
 		}
-		print(xp);
-		if (Mathf.Pow (lvl * 20, 1.2f) < xp) 
+
+		if (Mathf.Pow (lvlhell * 20, 1.2f) < xphell) 
 		{
-			lvl++;
-			xp = 0;
+			lvlhell++;
+			xphell = 0;
+		}
+
+		if (Mathf.Pow (lvlheaven * 20, 1.2f) < xpheaven) 
+		{
+			lvlheaven++;
+			xpheaven = 0;
 		}
 	}
 

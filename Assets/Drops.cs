@@ -16,8 +16,15 @@ public class Drops : MonoBehaviour {
 
 	public void onDeath()
 	{
-		
-		Object.FindObjectOfType<CharacterStats> ().xp += xpdrop;
-		Object.FindObjectOfType<CharacterStats> ().gold += moneydrop;
+		if (Object.FindObjectOfType<WaffenStats> ().demonic) 
+		{
+			Object.FindObjectOfType<CharacterStats> ().xphell += xpdrop;
+			Object.FindObjectOfType<CharacterStats> ().gold += moneydrop;
+		} 
+		else 
+		{
+			Object.FindObjectOfType<CharacterStats> ().xpheaven += xpdrop;
+			Object.FindObjectOfType<CharacterStats> ().gold += moneydrop;
+		}
 	}
 }
