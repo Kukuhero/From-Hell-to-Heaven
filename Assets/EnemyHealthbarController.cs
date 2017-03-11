@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealthbarController : MonoBehaviour {
+public class EnemyHealthbarController : MonoBehaviour {
 
 	[SerializeField]
 	private Image content;
-	private float playerhealth;
-	private float maxPlayerhealth;
+	private float health;
+	private float maxhealth;
 
 	// Use this for initialization
 	void Start () {
-		maxPlayerhealth = gameObject.transform.parent.parent.GetComponent<CharacterStats> ().health;
+		maxhealth = gameObject.transform.parent.parent.GetComponent<EnemyStats> ().health;
 		content.color = Color.green;
 	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -24,9 +24,9 @@ public class PlayerHealthbarController : MonoBehaviour {
 
 	void Barchange ()
 	{
-		playerhealth = gameObject.transform.parent.parent.GetComponent<CharacterStats> ().health;
+		health = gameObject.transform.parent.parent.GetComponent<EnemyStats> ().health;
 		//print ("playerhealth" + playerhealth + ", maxhealth:" + maxPlayerhealth);
-		content.fillAmount = (playerhealth/maxPlayerhealth);
+		content.fillAmount = (health/maxhealth);
 		if (content.fillAmount > 0.7f) 
 		{
 			content.color = Color.green;

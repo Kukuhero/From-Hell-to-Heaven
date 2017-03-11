@@ -71,7 +71,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 		{
 			dead = true;
 			transform.GetComponent<Drops> ().onDeath ();
-			gameObject.GetComponent<EnemyStats> ().Destroy;
+			StartCoroutine(GetComponent<EnemyStats> ().Destroy());
 			anim.SetFloat ("life", gameObject.GetComponent<EnemyStats> ().health);
 		}
 		if (!dead) 
