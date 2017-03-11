@@ -20,5 +20,11 @@ public class EnemyStats : MonoBehaviour {
 	void Start () {
 		
 	}
-	
+
+	public IEnumerator Destroy()
+	{
+		yield return new WaitForSeconds(10f);
+		Destroy(gameObject);
+	}
+
 }

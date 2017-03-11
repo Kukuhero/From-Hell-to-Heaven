@@ -67,11 +67,12 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 		//print (target.GetComponent<Health> ().health);
 		//print (anzahl);
 
-		if (gameObject.GetComponent<Health> ().health == 0 && !dead) 
+		if (gameObject.GetComponent<EnemyStats> ().health == 0 && !dead) 
 		{
 			dead = true;
 			transform.GetComponent<Drops> ().onDeath ();
-			anim.SetFloat ("life", gameObject.GetComponent<Health> ().health);
+			gameObject.GetComponent<EnemyStats> ().Destroy;
+			anim.SetFloat ("life", gameObject.GetComponent<EnemyStats> ().health);
 		}
 		if (!dead) 
 		{

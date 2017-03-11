@@ -37,7 +37,7 @@ public class FireprojektilController : MonoBehaviour {
                 {
                     //print("Enemy hit (shoot) " + other);
 				if (other.gameObject != schongetroffen)
-                        other.GetComponent<Health>().health -= 5f;
+					other.GetComponent<EnemyStats>().health -= 5f;
                     schongetroffen = other.gameObject;
                 }
                 break;
