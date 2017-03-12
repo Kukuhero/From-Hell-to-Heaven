@@ -8,7 +8,7 @@ public class Drops : MonoBehaviour {
 	public int moneydrop;
 	public GameObject weapondrops;
 	public float weaponDropChance;
-
+	public GameObject money;
 	// Use this for initialization
 	void Start () {
 		moneydrop = (int)(xpdrop * Random.Range (0.5f, 2f));
@@ -19,12 +19,16 @@ public class Drops : MonoBehaviour {
 		if (Object.FindObjectOfType<WaffenStats> ().demonic) 
 		{
 			Object.FindObjectOfType<CharacterStats> ().xphell += xpdrop;
-			Object.FindObjectOfType<CharacterStats> ().gold += moneydrop;
+
 		} 
 		else 
 		{
 			Object.FindObjectOfType<CharacterStats> ().xpheaven += xpdrop;
-			Object.FindObjectOfType<CharacterStats> ().gold += moneydrop;
+
+		}
+		for (int i = 0; i < moneydrop; i++) {
+			Instantiate (money, gameObject.transform.position,gameObject.transform.rotation);
+			print ("moneydrop");
 		}
 	}
 }
