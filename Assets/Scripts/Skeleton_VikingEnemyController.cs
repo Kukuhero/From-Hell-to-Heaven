@@ -12,7 +12,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
     public int lvl;
     public Animator anim;
     bool walk = true;
-	bool dead= false;
+	public bool dead= false;
 	bool inattack = false;
 	public Transform[] Waypoints = new Transform[10];
 	int x = -1;
@@ -72,6 +72,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 			dead = true;
 			transform.GetComponent<Drops> ().onDeath ();
 			StartCoroutine(GetComponent<EnemyStats> ().Destroy());
+			Destroy(gameObject.GetComponent<CapsuleCollider>());
 			anim.SetFloat ("life", gameObject.GetComponent<EnemyStats> ().health);
 		}
 		if (!dead) 

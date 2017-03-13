@@ -1,0 +1,172 @@
+-debug
+-target:library
+-nowarn:0169
+-langversion:4
+-out:Temp/Assembly-CSharp.dll
+-r:D:/Editor/Editor/Data/Managed/UnityEngine.dll
+-r:Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
+-r:D:/Editor/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+-r:D:/Editor/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+-r:D:/Editor/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll
+-r:D:/Editor/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll
+-r:D:/Editor/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll
+-r:D:/Editor/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll
+-r:Assets/MORPH3D/scripts/Plugins/M3DIMPORT_DLL.dll
+-r:Assets/MORPH3D/scripts/Plugins/M3D_DLL.dll
+-r:D:/Editor/Editor/Data/Managed/UnityEditor.dll
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_4_OR_NEWER
+-define:UNITY_5_5_OR_NEWER
+-define:UNITY_5_5_0
+-define:UNITY_5_5
+-define:UNITY_5
+-define:ENABLE_AUDIO
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_GENERICS
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_SPRITERENDERER_FLIPPING
+-define:ENABLE_SPRITES
+-define:ENABLE_TERRAIN
+-define:ENABLE_RAKNET
+-define:ENABLE_UNET
+-define:ENABLE_LZMA
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_WEBCAM
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES_COLLAB
+-define:ENABLE_CLOUD_SERVICES_ADS
+-define:ENABLE_CLOUD_HUB
+-define:ENABLE_CLOUD_PROJECT_ID
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_SERVICES_BUILD
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_EDITOR_METRICS
+-define:ENABLE_EDITOR_METRICS_CACHING
+-define:INCLUDE_DYNAMIC_GI
+-define:INCLUDE_GI
+-define:PLATFORM_SUPPORTS_MONO
+-define:RENDER_SOFTWARE_CURSOR
+-define:INCLUDE_PUBNUB
+-define:ENABLE_PLAYMODE_TESTS_RUNNER
+-define:ENABLE_SCRIPTING_NEW_CSHARP_COMPILER
+-define:UNITY_STANDALONE_WIN
+-define:UNITY_STANDALONE
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_MOVIES
+-define:ENABLE_NETWORK
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_UNITYWEBREQUEST
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_PURCHASING
+-define:ENABLE_CLOUD_SERVICES_CRASH_REPORTING
+-define:ENABLE_EVENT_QUEUE
+-define:ENABLE_CLUSTERINPUT
+-define:ENABLE_VIDEO
+-define:ENABLE_VR
+-define:ENABLE_WEBSOCKET_HOST
+-define:ENABLE_MONO
+-define:ENABLE_PROFILER
+-define:DEBUG
+-define:TRACE
+-define:UNITY_ASSERTIONS
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_64
+-define:UNITY_EDITOR_WIN
+-define:UNITY_TEAM_LICENSE
+-define:CROSS_PLATFORM_INPUT
+"Assets/100 Best Effect Pack/Script/csAnimationPlay.cs"
+"Assets/100 Best Effect Pack/Script/csLightIntancityControl.cs"
+"Assets/100 Best Effect Pack/Script/csPrefebMake.cs"
+"Assets/100 Best Effect Pack/ShurikenEffectEditor/csShurikenEffectChanger.cs"
+"Assets/100 Best Effect Pack/ShurikenEffectEditor/csShurikenEffectEditor.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/Antialiasing.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/Bloom.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/BloomAndFlares.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/BloomOptimized.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/Blur.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/BlurOptimized.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/CameraMotionBlur.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/ColorCorrectionCurves.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/ColorCorrectionLookup.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/ColorCorrectionRamp.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/ContrastEnhance.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/ContrastStretch.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/CreaseShading.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/DepthOfField.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/DepthOfFieldDeprecated.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/EdgeDetection.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/Fisheye.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/GlobalFog.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/Grayscale.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/ImageEffectBase.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/ImageEffects.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/MotionBlur.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/NoiseAndGrain.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/NoiseAndScratches.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/PostEffectsBase.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/PostEffectsHelper.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/Quads.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/ScreenOverlay.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/ScreenSpaceAmbientObscurance.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/ScreenSpaceAmbientOcclusion.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/SepiaTone.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/SunShafts.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/TiltShift.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/Tonemapping.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/Triangles.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/Twirl.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/VignetteAndChromaticAberration.cs"
+"Assets/100 Best Effect Pack/Standard Assets/Effects/ImageEffects/Scripts/Vortex.cs"
+Assets/Drops.cs
+Assets/EnemyHealthbarController.cs
+Assets/Healthbarpositioning.cs
+Assets/HellXpBar.cs
+Assets/KriptoFX/DemoSources/ExplosionDemoGUI.cs
+Assets/KriptoFX/DemoSources/ExplosionDemoReactivator.cs
+Assets/KriptoFX/DemoSources/ExplosionPlatformActivator.cs
+Assets/KriptoFX/DemoSources/ExplosionsFPS.cs
+Assets/KriptoFX/Scripts/ExplosionsBillboard.cs
+Assets/KriptoFX/Scripts/ExplosionsDeactivateRendererByTime.cs
+Assets/KriptoFX/Scripts/ExplosionsLightCurves.cs
+Assets/KriptoFX/Scripts/ExplosionsParticleSystemScaler.cs
+Assets/KriptoFX/Scripts/ExplosionsScaleCurves.cs
+Assets/KriptoFX/Scripts/ExplosionsShaderColorGradient.cs
+Assets/KriptoFX/Scripts/ExplosionsShaderFloatCurves.cs
+Assets/KriptoFX/Scripts/ExplosionsShaderQueue.cs
+Assets/KriptoFX/Scripts/ExplosionsSpriteSheetAnimation.cs
+Assets/MORPH3D/scripts/AttachmentPoints/SinglePropDefaultLayoutExample.cs
+Assets/MORPH3D/scripts/AttachmentPoints/SpiralPropLayout.cs
+Assets/Money.cs
+"Assets/Rocks and Boulders 2/Shaders/RotateGameObject.cs"
+"Assets/Rocks and Boulders 2/Standard Assets/Characters/FirstPersonCharacter/Scripts/HeadBob.cs"
+"Assets/Rocks and Boulders 2/Standard Assets/Characters/FirstPersonCharacter/Scripts/MouseLook.cs"
+"Assets/Rocks and Boulders 2/Standard Assets/Characters/FirstPersonCharacter/Scripts/RigidbodyFirstPersonController.cs"
+Assets/Scripts/CaneraController.cs
+Assets/Scripts/CharacterController.cs
+Assets/Scripts/CharacterStats.cs
+Assets/Scripts/EnemyController.cs
+Assets/Scripts/EnemySpawnController.cs
+Assets/Scripts/EnemyStats.cs
+Assets/Scripts/FireprojektilController.cs
+Assets/Scripts/FireprojektilEnemyController.cs
+Assets/Scripts/GranadeHellController.cs
+Assets/Scripts/Health.cs
+Assets/Scripts/Inventar.cs
+Assets/Scripts/PlayerHealthbarController.cs
+Assets/Scripts/Skeleton_VikingEnemyController.cs
+Assets/Scripts/WaffenStats.cs
+Assets/Scripts/WeaponController.cs
+Assets/Scripts/WeaponSpawner.cs
+Assets/Scripts/vikingswordController.cs
+-r:D:\Editor\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Runtime.Serialization.dll
+-r:D:\Editor\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Xml.Linq.dll
+-r:D:\Editor\Editor\Data\MonoBleedingEdge\lib\mono\unity\UnityScript.dll
+-r:D:\Editor\Editor\Data\MonoBleedingEdge\lib\mono\unity\UnityScript.Lang.dll
+-r:D:\Editor\Editor\Data\MonoBleedingEdge\lib\mono\unity\Boo.Lang.dll
+-sdk:unity

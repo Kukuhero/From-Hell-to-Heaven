@@ -14,7 +14,7 @@ public class vikingswordController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (!other.isTrigger && other.transform.tag == "Player") 
+		if (!other.isTrigger && other.transform.tag == "Player" && !transform.root.GetComponent<Skeleton_VikingEnemyController>().dead) 
 		{
 			print (transform.root);
 			other.GetComponent<CharacterStats>().health -= -other.GetComponent<CharacterStats>().fireResistance + transform.root.GetComponent<EnemyStats>().fire;
