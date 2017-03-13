@@ -27,11 +27,14 @@ public class Drops : MonoBehaviour {
 			Object.FindObjectOfType<CharacterStats> ().xpheaven += xpdrop;
 
 		}
-		for (int i = 0; i < moneydrop; i++) {
+
+		money.GetComponent<Money> ().value = moneydrop;
+		Instantiate (money, transform.position,gameObject.transform.rotation);
+		/*for (int i = 0; i < moneydrop; i++) {
 			spawnposition = new Vector3 (gameObject.transform.position.x,gameObject.transform.position.y+(i+1f/3f),gameObject.transform.position.z);
 			Instantiate (money, spawnposition,gameObject.transform.rotation);
 			print ("moneydrop");
 			//Time.timeScale = 0;
-		}
+		}*/
 	}
 }
