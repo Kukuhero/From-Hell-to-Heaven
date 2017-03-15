@@ -73,6 +73,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 			transform.GetComponent<Drops> ().onDeath ();
 			StartCoroutine(GetComponent<EnemyStats> ().Destroy());
 			Destroy(gameObject.GetComponent<CapsuleCollider>());
+			Destroy(gameObject.transform.FindChild("HealthbarCanvas").gameObject);
 			anim.SetFloat ("life", gameObject.GetComponent<EnemyStats> ().health);
 		}
 		if (!dead) 
