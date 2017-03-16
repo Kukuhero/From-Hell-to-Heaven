@@ -14,6 +14,8 @@ public class CharacterStats : MonoBehaviour {
     public float dashSpeed;
     public float dashTime;
 	public float gold;
+	public float goldmultiplier;
+	public float lootmultiplier;
 	public float xphell;
 	public float xpheaven;
 	public int lvlhell;
