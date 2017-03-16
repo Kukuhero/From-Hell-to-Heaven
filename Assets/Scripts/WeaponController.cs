@@ -5,7 +5,6 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour {
     public Transform Spawnpoint;
     public GameObject Projektil;
-    public bool shoot;
 
     // Use this for initialization
     void Start () {
@@ -15,10 +14,9 @@ public class WeaponController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(shoot)
+		if(Input.GetMouseButtonDown(0))
         {
             Instantiate(Projektil, Spawnpoint.position, transform.parent.parent.rotation);
-            shoot = false;
         }
 		
 	}

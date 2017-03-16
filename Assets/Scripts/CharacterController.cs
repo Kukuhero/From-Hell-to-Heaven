@@ -73,10 +73,10 @@ public class CharacterController : MonoBehaviour {
 			speed = normalspeed;
 		}
 
-        if( Input.GetMouseButtonDown(0))
+       /* if( Input.GetMouseButtonDown(0))
         {
             transform.FindChild("Weaponspawnpoint").GetChild(0).gameObject.GetComponent<WeaponController>().shoot = true;
-        }
+        }*/
 
         if(Input.GetAxis("Mouse ScrollWheel") != 0)
         {

@@ -16,6 +16,7 @@ public class WaffenStats : MonoBehaviour {
     public bool Weihwasser;
     public bool Dämonenfeuer;
 	public bool demonic;
+	public float speed;
 
 	// Use this for initialization
 	void Start () 
