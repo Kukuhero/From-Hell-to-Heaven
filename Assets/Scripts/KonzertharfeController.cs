@@ -11,7 +11,9 @@ public class KonzertharfeController : MonoBehaviour {
 	bool inshoot = false;
 	// Use this for initialization
 	void Start () {
-		
+		Projektil.GetComponent<FireprojektilController> ().light = transform.GetComponent<WaffenStats> ().light;
+		Projektil.GetComponent<FireprojektilController> ().damage = transform.GetComponent<WaffenStats> ().light;
+		Projektil.GetComponent<FireprojektilController> ().reichweite = transform.GetComponent<WaffenStats> ().Reichweite;
 	}
 	
 	// Update is called once per frame
@@ -26,7 +28,7 @@ public class KonzertharfeController : MonoBehaviour {
 			if (!inshoot) 
 			{
 				inshoot = true;
-				InvokeRepeating ("Shoot", 0.5f, 0.3f);
+				InvokeRepeating ("Shoot", 0.5f, transform.GetComponent<WaffenStats>().firerate);
 			}
 
 		} else 

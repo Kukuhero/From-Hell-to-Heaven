@@ -7,10 +7,14 @@ public class FireprojektilController : MonoBehaviour {
     public float speed ;
     GameObject schongetroffen;
     float step;
+	public float reichweite;
+	public float light;
+	public float fire;
+	public float damage;
     // Use this for initialization
     void Start () {
+		Invoke ("Destroy", reichweite);
         step = speed * Time.deltaTime;
-        StartCoroutine(Destroy());
 		
 	}
 	
@@ -45,13 +49,11 @@ public class FireprojektilController : MonoBehaviour {
     }
 
    
-    IEnumerator Destroy()
+    void Destroy()
     {
-        while(true)
-        {
-            yield return new WaitForSeconds(5f);
+            
             Destroy(gameObject);
-        }
+        
     }
     Vector3 Vectornormieren(Vector3 vector)
     {
