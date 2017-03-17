@@ -147,7 +147,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 		break;
 
         case "Player":
-			if (!other.isTrigger && other.name == "Player" && other.gameObject != target)
+			if (!other.isTrigger/* && other.name == "Player"*/ && other.gameObject != target)
             {
 					//searching = true;
                		target = other.transform.gameObject;

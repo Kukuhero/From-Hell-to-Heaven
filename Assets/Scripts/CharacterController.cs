@@ -25,7 +25,7 @@ public class CharacterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 		counter++;
 
 		if (counter-oldcounter==dashcooldown) 
@@ -97,8 +97,8 @@ public class CharacterController : MonoBehaviour {
                 }
                 Weapon = transform.GetComponent<Inventar>().inventar[Invnumb];
                 Instantiate(Weapon, Weaponspawnpoint.position, transform.rotation, Weaponspawnpoint);
-              
-
+				speed = Weapon.GetComponent<WaffenStats> ().speed;
+				normalspeed = Weapon.GetComponent<WaffenStats> ().speed;
 
             }
             else
@@ -110,6 +110,8 @@ public class CharacterController : MonoBehaviour {
                 }
                 Weapon = transform.GetComponent<Inventar>().inventar[Invnumb];
                 Instantiate(Weapon, Weaponspawnpoint.position, transform.rotation, Weaponspawnpoint);
+				speed = Weapon.GetComponent<WaffenStats> ().speed;
+				normalspeed = Weapon.GetComponent<WaffenStats> ().speed;
               
             }
         }
