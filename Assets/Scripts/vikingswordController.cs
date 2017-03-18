@@ -17,9 +17,9 @@ public class vikingswordController : MonoBehaviour {
 		if (!other.isTrigger && other.transform.tag == "Player" && !transform.root.GetComponent<Skeleton_VikingEnemyController>().dead) 
 		{
 			print (transform.root);
-			other.GetComponent<CharacterStats>().health -= -other.GetComponent<CharacterStats>().fireResistance + transform.root.GetComponent<EnemyStats>().fire;
-			other.GetComponent<CharacterStats>().health -= -other.GetComponent<CharacterStats>().waterResistance + transform.root.GetComponent<EnemyStats>().light;
-			other.GetComponent<CharacterStats>().health -= -other.GetComponent<CharacterStats>().shadowResistance + transform.root.GetComponent<EnemyStats>().damage;
+			other.transform.parent.GetComponent<CharacterStats>().health -= -other.transform.parent.GetComponent<CharacterStats>().fireResistance + transform.root.GetComponent<EnemyStats>().fire;
+			other.transform.parent.GetComponent<CharacterStats>().health -= -other.transform.parent.GetComponent<CharacterStats>().waterResistance + transform.root.GetComponent<EnemyStats>().light;
+			other.transform.parent.GetComponent<CharacterStats>().health -= -other.transform.parent.GetComponent<CharacterStats>().shadowResistance + transform.root.GetComponent<EnemyStats>().damage;
 			hit = true;
 		}
 	}

@@ -89,6 +89,7 @@
      <Compile Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
      <Compile Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
      <Compile Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
+     <Compile Include="Assets\HeavenXpBar.cs" />
      <Compile Include="Assets\KriptoFX\DemoSources\ExplosionDemoGUI.cs" />
      <Compile Include="Assets\KriptoFX\DemoSources\ExplosionDemoReactivator.cs" />
      <Compile Include="Assets\KriptoFX\DemoSources\ExplosionPlatformActivator.cs" />
@@ -104,6 +105,7 @@
      <Compile Include="Assets\KriptoFX\Scripts\ExplosionsSpriteSheetAnimation.cs" />
      <Compile Include="Assets\MORPH3D\scripts\AttachmentPoints\SinglePropDefaultLayoutExample.cs" />
      <Compile Include="Assets\MORPH3D\scripts\AttachmentPoints\SpiralPropLayout.cs" />
+     <Compile Include="Assets\MoneyBarController.cs" />
      <Compile Include="Assets\Rocks and Boulders 2\Shaders\RotateGameObject.cs" />
      <Compile Include="Assets\Rocks and Boulders 2\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
      <Compile Include="Assets\Rocks and Boulders 2\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
@@ -238,9 +240,6 @@
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -255,9 +254,6 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>

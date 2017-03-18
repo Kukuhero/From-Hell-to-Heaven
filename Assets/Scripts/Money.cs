@@ -13,7 +13,7 @@ public class Money : MonoBehaviour {
 		if (collision.transform.tag == "Player") 
 			{
 				print ("should work");
-			collision.transform.GetComponent<CharacterStats> ().gold += value * Object.FindObjectOfType<CharacterStats> ().goldmultiplier;
+			Object.FindObjectOfType<CharacterStats> ().gold += value * Object.FindObjectOfType<CharacterStats> ().goldmultiplier;
 				Destroy (transform.root.gameObject);
 			}
 

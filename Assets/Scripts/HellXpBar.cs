@@ -14,11 +14,15 @@ public class HellXpBar : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		content.color = Color.yellow;
+		content.color = Color.black;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		content.fillAmount = (gameObject.transform.parent.parent.GetComponent<CharacterStats>().xphell/Mathf.Pow (gameObject.transform.parent.parent.GetComponent<CharacterStats>().lvlhell * 20, 1.2f));
+		print((gameObject.transform.parent.parent.GetComponent<CharacterStats> ().xphell / (Mathf.Pow (gameObject.transform.parent.parent.GetComponent<CharacterStats> ().lvlhell * 20, 1.2f)+50f)));
+		if (content.fillAmount < (gameObject.transform.parent.parent.GetComponent<CharacterStats> ().xphell / (Mathf.Pow (gameObject.transform.parent.parent.GetComponent<CharacterStats> ().lvlhell * 20, 1.2f)+50f))) 
+		{
+		content.fillAmount += (gameObject.transform.parent.parent.GetComponent<CharacterStats> ().xphell /( Mathf.Pow (gameObject.transform.parent.parent.GetComponent<CharacterStats> ().lvlhell * 20, 1.2f)+50f))/60f;
+		}
 	}
 }

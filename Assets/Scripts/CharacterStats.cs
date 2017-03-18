@@ -36,13 +36,13 @@ public class CharacterStats : MonoBehaviour {
 			StartCoroutine (Destroy ());
 		}
 
-		if (Mathf.Pow (lvlhell * 20, 1.2f) < xphell) 
+		if (Mathf.Pow (lvlhell * 20, 1.2f)+50f < xphell) 
 		{
 			lvlhell++;
 			xphell = 0;
 		}
 
-		if (Mathf.Pow (lvlheaven * 20, 1.2f) < xpheaven) 
+		if (Mathf.Pow (lvlheaven * 20, 1.2f)+50f < xpheaven) 
 		{
 			lvlheaven++;
 			xpheaven = 0;
