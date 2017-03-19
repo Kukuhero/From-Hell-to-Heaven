@@ -6,10 +6,14 @@ public class Money : MonoBehaviour {
 
 	public int value;
 
+	void Update () {
+		transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+
+	}
+
 
 		
 		void OnCollisionEnter(Collision collision) {
-			print ("triggergold");
 		if (collision.transform.tag == "Player") 
 			{
 				print ("should work");

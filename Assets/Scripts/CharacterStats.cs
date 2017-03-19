@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour {
     public float speed;
@@ -20,10 +21,11 @@ public class CharacterStats : MonoBehaviour {
 	public float xpheaven;
 	public int lvlhell;
 	public int lvlheaven;
+	public Canvas Anzeige;
 
 	// Use this for initialization
 	void Start () {
-		
+		Anzeige.enabled = false;
 	}
 
 
@@ -33,7 +35,7 @@ public class CharacterStats : MonoBehaviour {
 		if( health <= 0)
 		{
 			health = 0;
-			StartCoroutine (Destroy ());
+			Invoke ("Destroy", 4f);
 		}
 
 		if (Mathf.Pow (lvlhell * 20, 1.2f)+50f < xphell) 
@@ -51,9 +53,9 @@ public class CharacterStats : MonoBehaviour {
 
 
 
-	IEnumerator Destroy()
+	void Destroy()
 	{
-		yield return new WaitForSeconds(10f);
-		Destroy(gameObject);
+		print ("Anzeige");
+		Anzeige.enabled = true;
 	}
 }

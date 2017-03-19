@@ -89,7 +89,6 @@
      <Compile Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
      <Compile Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
      <Compile Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
-     <Compile Include="Assets\HeavenXpBar.cs" />
      <Compile Include="Assets\KriptoFX\DemoSources\ExplosionDemoGUI.cs" />
      <Compile Include="Assets\KriptoFX\DemoSources\ExplosionDemoReactivator.cs" />
      <Compile Include="Assets\KriptoFX\DemoSources\ExplosionPlatformActivator.cs" />
@@ -105,7 +104,6 @@
      <Compile Include="Assets\KriptoFX\Scripts\ExplosionsSpriteSheetAnimation.cs" />
      <Compile Include="Assets\MORPH3D\scripts\AttachmentPoints\SinglePropDefaultLayoutExample.cs" />
      <Compile Include="Assets\MORPH3D\scripts\AttachmentPoints\SpiralPropLayout.cs" />
-     <Compile Include="Assets\MoneyBarController.cs" />
      <Compile Include="Assets\Rocks and Boulders 2\Shaders\RotateGameObject.cs" />
      <Compile Include="Assets\Rocks and Boulders 2\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
      <Compile Include="Assets\Rocks and Boulders 2\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
@@ -113,6 +111,7 @@
      <Compile Include="Assets\Scripts\CaneraController.cs" />
      <Compile Include="Assets\Scripts\CharacterController.cs" />
      <Compile Include="Assets\Scripts\CharacterStats.cs" />
+     <Compile Include="Assets\Scripts\ChestController.cs" />
      <Compile Include="Assets\Scripts\Drops.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\EnemyHealthbarController.cs" />
@@ -125,6 +124,7 @@
      <Compile Include="Assets\Scripts\GranadeHellController.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\Healthbarpositioning.cs" />
+     <Compile Include="Assets\Scripts\HeavenXpBar.cs" />
      <Compile Include="Assets\Scripts\HellXpBar.cs" />
      <Compile Include="Assets\Scripts\Inventar.cs" />
      <Compile Include="Assets\Scripts\KonzertharfeController.cs" />
@@ -135,6 +135,7 @@
      <Compile Include="Assets\Scripts\WeaponController.cs" />
      <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
      <Compile Include="Assets\Scripts\vikingswordController.cs" />
+     <Compile Include="Assets\Sprites\MoneyBarController.cs" />
      <None Include="Assets\KriptoFX\Shaders\ExplosionsDistortionParticlesCutout.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

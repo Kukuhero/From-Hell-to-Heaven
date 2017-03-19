@@ -70,7 +70,7 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 		if (gameObject.GetComponent<EnemyStats> ().health == 0 && !dead) 
 		{
 			dead = true;
-			transform.GetComponent<Drops> ().onDeath ();
+			transform.GetComponent<Drops> ().Drop ();
 			StartCoroutine(GetComponent<EnemyStats> ().Destroy());
 			Destroy(gameObject.GetComponent<CapsuleCollider>());
 			Destroy(gameObject.transform.FindChild("HealthbarCanvas").gameObject);
