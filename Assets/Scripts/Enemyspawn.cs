@@ -22,7 +22,7 @@ public class Enemyspawn : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		
-		if (other.transform.tag == "Player") 
+		if (other.transform.tag == "Player" ) 
 		{
 			playerLVL = other.transform.root.GetComponent<CharacterStats> ().lvlheaven + other.transform.root.GetComponent<CharacterStats> ().lvlhell;
 			if (playerLVL < 10) 
@@ -41,20 +41,25 @@ public class Enemyspawn : MonoBehaviour {
 			{
 				spawnedEnemys = (spawnpoints.Length/3);
 			}
-			while(spawnedEnemys>alreadySpawnedEnemys)
+
+			InvokeRepeating("Spawn",0f,Random.Range(0f,1f));
+
+		}
+	}
+	void Spawn()
+	{
+		if(spawnedEnemys>alreadySpawnedEnemys)
+		{
+			currentlySpawnEnemy = spawnableEnemy [Random.Range (0, spawnableEnemy.Length)];
+			currentSpawnPosition = Random.Range (0, spawnpoints.Length);
+			if (!alreadyUsedPositions [currentSpawnPosition]) 
 			{
-				currentlySpawnEnemy = spawnableEnemy[Random.Range(0,spawnableEnemy.Length)];
-				currentSpawnPosition = Random.Range (0,spawnpoints.Length);
-				if (!alreadyUsedPositions [currentSpawnPosition]) 
-				{
-					print (spawnpoints [currentSpawnPosition].position);
-					Instantiate (currentlySpawnEnemy,spawnpoints[currentSpawnPosition].position,spawnpoints[currentSpawnPosition].rotation);
-					alreadyUsedPositions [currentSpawnPosition] = true;
-					alreadySpawnedEnemys++;
-				}
+				print (spawnpoints [currentSpawnPosition].position);
+				Invoke ("Spawn", Random.Range (0f, 1f));
+				Instantiate (currentlySpawnEnemy,spawnpoints[currentSpawnPosition].position,spawnpoints[currentSpawnPosition].rotation);
+				alreadyUsedPositions [currentSpawnPosition] = true;
+				alreadySpawnedEnemys++;
 			}
-
-
 		}
 	}
 
