@@ -184,6 +184,7 @@ public class CharacterController : MonoBehaviour {
 	{
 		if(col.gameObject.tag == "Wall")
 		{
+			print (col.impulse);
 			speed = normalspeed;
 		}
 	}
