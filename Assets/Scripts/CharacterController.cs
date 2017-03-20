@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour {
     private float speed;
@@ -11,8 +12,11 @@ public class CharacterController : MonoBehaviour {
     public int lvl, dashlenght, dashspeedadd, dashcooldown;
 	private bool dashavailable = true;
 	private float normalspeed;
+	public Canvas Menu;
 	// Use this for initialization
 	void Start () {
+		transform.FindChild ("Camera").gameObject.SetActive( false);
+		Menu.enabled = false;
         speed = transform.GetComponent<CharacterStats>().speed;
         if (transform.GetComponent<Inventar>().inventar[0] != null)
         {
@@ -33,6 +37,17 @@ public class CharacterController : MonoBehaviour {
 			dashavailable = true;
 		}
 
+		if (Input.GetKeyDown (KeyCode.I)) 
+		{
+			if (Menu.enabled == true) {
+				Menu.enabled = false;
+				transform.FindChild ("Camera").gameObject.SetActive(false);
+			} else 
+			{
+				transform.FindChild ("Camera").gameObject.SetActive(true);
+				Menu.enabled = true;
+			}
+		}
         Animation();
         Vector3 rotationVector = transform.rotation.eulerAngles;
         rotationVector.y += Input.GetAxis("Mouse X") * 10;
