@@ -48,10 +48,10 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 		if (searching) 
 		{
 			RaycastHit hit2;
-			//if (Physics.Raycast (transform.position, target.transform.position, out hit2, 10f)) 
+			if (Physics.Raycast (transform.position, target.transform.position, out hit2, 10f)) 
 			{
 				
-				//if (hit2.transform.tag == "Player") transform.position vom Player ist nicht Position vom Player, wird mit eigenem Modell gefixt
+				if (hit2.transform.tag == "Player") //transform.position vom Player ist nicht Position vom Player, wird mit eigenem Modell gefixt
 				{
 					
 					attack = true;
