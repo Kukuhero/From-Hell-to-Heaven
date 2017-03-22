@@ -8,7 +8,7 @@ public class WeaponController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		Projektil.GetComponent<FireprojektilController> ().reichweite = transform.GetComponent<WaffenStats> ().Reichweite;
+		//Projektil.GetComponent<FireprojektilController> ().reichweite = transform.GetComponent<WaffenStats> ().Reichweite;
 
     }
 	

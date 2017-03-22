@@ -22,10 +22,10 @@ public class CharacterStats : MonoBehaviour {
 	public int lvlhell;
 	public int lvlheaven;
 	public Canvas Anzeige;
+	Sprite[] inventarSlots = new Sprite[20];
 
 	// Use this for initialization
 	void Start () {
-		Anzeige.enabled = false;
 	}
 
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaffenStats : MonoBehaviour {
 
@@ -17,6 +18,7 @@ public class WaffenStats : MonoBehaviour {
     public bool Dämonenfeuer;
 	public bool demonic;
 	public float speed;
+	public Sprite Picture;
 
 	// Use this for initialization
 	void Start () 

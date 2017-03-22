@@ -127,15 +127,16 @@
      <Compile Include="Assets\Scripts\HeavenXpBar.cs" />
      <Compile Include="Assets\Scripts\HellXpBar.cs" />
      <Compile Include="Assets\Scripts\Inventar.cs" />
+     <Compile Include="Assets\Scripts\InventarControl.cs" />
      <Compile Include="Assets\Scripts\KonzertharfeController.cs" />
      <Compile Include="Assets\Scripts\Money.cs" />
+     <Compile Include="Assets\Scripts\MoneyBarController.cs" />
      <Compile Include="Assets\Scripts\PlayerHealthbarController.cs" />
      <Compile Include="Assets\Scripts\Skeleton_VikingEnemyController.cs" />
      <Compile Include="Assets\Scripts\WaffenStats.cs" />
      <Compile Include="Assets\Scripts\WeaponController.cs" />
      <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
      <Compile Include="Assets\Scripts\vikingswordController.cs" />
-     <Compile Include="Assets\Sprites\MoneyBarController.cs" />
      <None Include="Assets\KriptoFX\Shaders\ExplosionsDistortionParticlesCutout.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
@@ -241,9 +242,6 @@
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -258,9 +256,6 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
