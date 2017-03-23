@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Inventar : MonoBehaviour {
     public GameObject[] inventar = new GameObject[20];
+	public GameObject[] aktiveWaffen = new GameObject[5];
     public int number =0;
-	public Image Menu;
 
 	// Use this for initialization
 	void Start () {
@@ -15,10 +15,7 @@ public class Inventar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () { 
-        for(int i=0; i < 20 ; i++)
-        {
-			//Menu.GetComponent<InventarControl> ().inventarSlots[i]= inventar[i].GetComponent<WaffenStats>().Picture;
-        }
+   
 		
 	}
 }

@@ -40,12 +40,14 @@ public class CharacterController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.I)) 
 		{
 			if (Menu.enabled == true) {
+				Cursor.visible = false;
 				Menu.enabled = false;
 				transform.FindChild ("Camera").gameObject.SetActive(false);
 			} else 
 			{
 				transform.FindChild ("Camera").gameObject.SetActive(true);
 				Menu.enabled = true;
+				Cursor.visible = true;
 			}
 		}
         Animation();

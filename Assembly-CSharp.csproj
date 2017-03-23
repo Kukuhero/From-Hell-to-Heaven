@@ -89,6 +89,7 @@
      <Compile Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
      <Compile Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
      <Compile Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
+     <Compile Include="Assets\DragDropScript.cs" />
      <Compile Include="Assets\KriptoFX\DemoSources\ExplosionDemoGUI.cs" />
      <Compile Include="Assets\KriptoFX\DemoSources\ExplosionDemoReactivator.cs" />
      <Compile Include="Assets\KriptoFX\DemoSources\ExplosionPlatformActivator.cs" />
@@ -137,6 +138,7 @@
      <Compile Include="Assets\Scripts\WeaponController.cs" />
      <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
      <Compile Include="Assets\Scripts\vikingswordController.cs" />
+     <Compile Include="Assets\Slots.cs" />
      <None Include="Assets\KriptoFX\Shaders\ExplosionsDistortionParticlesCutout.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\100 Best Effect Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

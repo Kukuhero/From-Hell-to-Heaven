@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 public class InventarControl : MonoBehaviour {
 
 	public Camera camera;
@@ -9,6 +10,7 @@ public class InventarControl : MonoBehaviour {
 	private Transform[] pictureArray;
 	public GameObject Inventar;
 	int i=0;
+	bool find = false;
 	// Use this for initialization
 	void Start () {
 		pictureArray = new Transform[40];
@@ -20,17 +22,22 @@ public class InventarControl : MonoBehaviour {
 	}
 	void Update()
 	{
+		
 		for(int i = 0; i < Inventar.GetComponent<Inventar> ().number && Inventar.GetComponent<Inventar> ().inventar [i] != null; i++)
 		{
-			print ("Length: "+ inventarSlots.Length + ", i: " + i);
+			//print ("Length: "+ inventarSlots.Length + ", i: " + i);
 			//print ( Inventar.GetComponent<Inventar> ().number);
-			print (Inventar.GetComponent<Inventar> ().inventar [i].GetComponent<WaffenStats> ().Picture);
+			//print (Inventar.GetComponent<Inventar> ().inventar [i].GetComponent<WaffenStats> ().Picture);
 			inventarSlots [i] = Inventar.GetComponent<Inventar>().inventar[i].GetComponent<WaffenStats>().Picture;
-			print (pictureArray[i].gameObject.GetComponentInChildren<Image> ().gameObject);
+			//print (pictureArray[i].gameObject.GetComponentInChildren<Image> ().gameObject);
 			pictureArray[i].GetChild(0).GetComponent<Image> ().sprite = inventarSlots [i];
 		}
 
 	}
+	public void OnClick()
+	{
+		print (EventSystem.current.currentSelectedGameObject.name);
 
+	}
 
 }
