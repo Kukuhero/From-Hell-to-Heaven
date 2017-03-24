@@ -36,7 +36,8 @@ public class InventarControl : MonoBehaviour {
 	}
 	public void OnClick()
 	{
-		print (EventSystem.current.currentSelectedGameObject.name);
+		EventSystem.current.currentSelectedGameObject.gameObject.GetComponent<Slots>().itemBeingDragged =
+			EventSystem.current.currentSelectedGameObject.gameObject.transform.GetChild(0).GetComponent<DragDropScript>().itemBeingDragged;
 
 	}
 

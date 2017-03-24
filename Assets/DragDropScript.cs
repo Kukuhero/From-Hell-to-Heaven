@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class DragDropScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
-	public static GameObject itemBeingDragged;
+	public GameObject itemBeingDragged;
 	public static Vector3 ItemStartPosition;
 	public static Transform ItemStartParent;
 

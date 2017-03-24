@@ -7,23 +7,26 @@ public class Slots : MonoBehaviour {
 	public GameObject item {
 		get {
 			if (transform.childCount > 0) {
+				print ("initem");
 				return transform.GetChild (0).gameObject;
 			}
 			return null;
 		}
 	}
+	public GameObject itemBeingDragged;
 	
 	public void OnDrop(PointerEventData eventData)
 	{
-		if(DragDropScript.itemBeingDragged != null)
+		print ("onDrop aufgerufen");
+		if(itemBeingDragged != null)
 		{
 			if(item)
 			{
-				DragDropScript.itemBeingDragged.transform.SetParent (DragDropScript.ItemStartParent);
-				DragDropScript.itemBeingDragged.transform.position = DragDropScript.ItemStartPosition;
+				itemBeingDragged.transform.SetParent (DragDropScript.ItemStartParent);
+				itemBeingDragged.transform.position = DragDropScript.ItemStartPosition;
 			}
 			else{
-				DragDropScript.itemBeingDragged.transform.SetParent (transform);
+				itemBeingDragged.transform.SetParent (transform);
 			}
 		}
 	}
