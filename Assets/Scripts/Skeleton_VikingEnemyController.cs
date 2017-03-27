@@ -6,21 +6,31 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 
     Vector3 Richtungsvector;
     public float speed;
+	private float[] speedall;
     float originalspeed;
     bool attack = false;
+	private bool[] attackall;
     GameObject target;
+	private Transform[] enemys;
     public int lvl;
+	private int[] lvlall;
     public Animator anim;
     bool walk = true;
+	private bool[] walkall;
 	public bool dead= false;
+	private bool[] deadall;
 	bool inattack = false;
+	private bool[] inattackall;
 	public Transform[] Waypoints = new Transform[10];
+	private bool[] usedWayponts;
 	int x = -1;
 	int anzahl = 0;
+	private int enemyAnzahl;
 	bool forward = true;
 	//int ii = 0;
 	public bool Kreislaufen;
 	bool searching = false;
+	private bool[] searchingall;
 	public float damage1;
 	public float damage2;
 	public float damage3;
@@ -33,7 +43,25 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
 		speed = 4f;
 		originalspeed = speed;
 		anzahl = Waypoints.Length;
-
+		enemys = transform.GetComponentsInChildren<Transform>;
+		enemyAnzahl = enemys.Length;
+		usedWayponts = new bool[enemyAnzahl];
+		speedall = new bool[enemyAnzahl];
+		searchingall = new bool[enemyAnzahl];
+		walkall = new bool[enemyAnzahl];
+		deadall = new bool[enemyAnzahl];
+		attackall = new bool[enemyAnzahl];
+		inattackall = new bool[enemyAnzahl];
+		for(int ii = 0; ii < enemyAnzahl; ii++) 
+		{
+			usedWayponts [ii] = false;
+			speedall [ii] = originalspeed;
+			searchingall [ii] = false;
+			walkall [ii] = true;
+			deadall [ii] = false;
+			attackall [ii] = false;
+			inattackall [ii] = false;
+		}
 		Waypointwalk ();
 
 
@@ -45,86 +73,77 @@ public class Skeleton_VikingEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
 	{
-		if (searching) 
-		{
-			RaycastHit hit2;
-			if (Physics.Raycast (transform.position, target.transform.position, out hit2, 10f)) 
-			{
+		for (int ii = 0; ii < enemyAnzahl; ii++) {
+			if (searchingall[ii]) {
+				RaycastHit hit2;
+				if (Physics.Raycast (enemys[ii].position, target.transform.position, out hit2, 10f)) {
 				
-				if (hit2.transform.tag == "Player") //transform.position vom Player ist nicht Position vom Player, wird mit eigenem Modell gefixt
-				{
+					if (hit2.transform.tag == "Player") { //transform.position vom Player ist nicht Position vom Player, wird mit eigenem Modell gefixt
 					
-					attack = true;
-					print ("Enemy: Spieler gefunden");
-					float angle = Mathf.Atan2(Richtungsvector.x, Richtungsvector.z) * Mathf.Rad2Deg;
-					transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
-					//transform.position += Richtungsvector * speed * Time.deltaTime;
+						attackall[ii] = true;
+						print ("Enemy: Spieler gefunden");
+						float angle = Mathf.Atan2 (Richtungsvector.x, Richtungsvector.z) * Mathf.Rad2Deg;
+						enemys[ii].rotation = Quaternion.AngleAxis (angle, Vector3.up);
+						//transform.position += Richtungsvector * speed * Time.deltaTime;
+					}
 				}
 			}
-		}
-		//print (speed);
-		//print (Richtungsvector);
-		//print (target.GetComponent<Health> ().health);
-		//print (anzahl);
+			//print (speed);
+			//print (Richtungsvector);
+			//print (target.GetComponent<Health> ().health);
+			//print (anzahl);
 
-		if (gameObject.GetComponent<EnemyStats> ().health == 0 && !dead) 
-		{
-			dead = true;
-			transform.GetComponent<Drops> ().Drop ();
-			StartCoroutine(GetComponent<EnemyStats> ().Destroy());
-			Destroy(gameObject.GetComponent<CapsuleCollider>());
-			Destroy(gameObject.transform.FindChild("HealthbarCanvas").gameObject);
-			anim.SetFloat ("life", gameObject.GetComponent<EnemyStats> ().health);
-		}
-		if (!dead) 
-		{
-			if (walk)
-			{
-				transform.position += Richtungsvector * speed * Time.deltaTime;
-				anim.SetBool ("walk", true);
-				//print(Vectorlaenge(Vectorberechnung(transform.position,Waypoints[x].transform.position)));
-				//if (i != 0 && transform.position.x*0.8f >= Waypoints [x].transform.position.x && transform.position.z*0.8f >= Waypoints[x].transform.position.z )
-				if (Vectorlaenge (Vectorberechnung (transform.position, Waypoints [x].transform.position)) <= 2f && !attack) {
-					Waypointwalk ();
-				}
-			} else 
-			{
-				anim.SetBool ("walk", false);
+			if (enemys[ii].GetComponent<EnemyStats> ().health == 0 && !deadall[ii]) {
+				deadall[ii] = true;
+				enemys[ii].GetComponent<Drops> ().Drop ();
+				StartCoroutine (enemys[ii].GetComponent<EnemyStats> ().Destroy ());
+				Destroy (enemys[ii].GetComponent<CapsuleCollider> ());
+				Destroy (enemys[ii].FindChild ("HealthbarCanvas").gameObject);
+				anim.SetFloat ("life", enemys[ii].GetComponent<EnemyStats> ().health);
 			}
+			if (!deadall[ii]) {
+				if (walkall[ii]) {
+					enemys[ii].position += Richtungsvector * speedall[ii] * Time.deltaTime;
+					anim.SetBool ("walk", true);
+					//print(Vectorlaenge(Vectorberechnung(transform.position,Waypoints[x].transform.position)));
+					//if (i != 0 && transform.position.x*0.8f >= Waypoints [x].transform.position.x && transform.position.z*0.8f >= Waypoints[x].transform.position.z )
+					if (Vectorlaenge (Vectorberechnung (enemys[ii].position, Waypoints [x].transform.position)) <= 2f && !attack) {
+						Waypointwalk ();
+					}
+				} else {
+					anim.SetBool ("walk", false);
+				}
 
-			float angle = Mathf.Atan2 (Richtungsvector.x, Richtungsvector.z) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.AngleAxis (angle, Vector3.up);
+				float angle = Mathf.Atan2 (Richtungsvector.x, Richtungsvector.z) * Mathf.Rad2Deg;
+				enemys[ii].rotation = Quaternion.AngleAxis (angle, Vector3.up);
 
-			if (attack) 
-			{
+				if (attackall[ii]) {
 				
 
-				CancelInvoke ("Richtungswechsel");
-				//print (Vectornormieren (Vectorberechnung (transform.position, target.transform.position)));
-				Richtungsvector = Vectornormieren (Vectorberechnung (transform.position, target.transform.position));
-				if (Vectorlaenge (Vectorberechnung (transform.position, target.transform.position)) <= 2f) 
-				{
-					print ("Enemy: Spieler vor mir");
-					speed = 0;
-					anim.SetBool ("walk", false);
-					if (!inattack) 
-					{
-						inattack = true;
-						InvokeRepeating ("Attack", 0f, 3f);
-					}
-					walk = false;
 					CancelInvoke ("Richtungswechsel");
-				} else 
-				{
-					walk = true;
-					speed = originalspeed;
-					inattack = false;
-					CancelInvoke ("Attack");
-					anim.SetBool("attack1", false);
-					anim.SetBool("attack2", false);
-					//anim.SetBool("attack3", false);
-				}
+					//print (Vectornormieren (Vectorberechnung (transform.position, target.transform.position)));
+					Richtungsvector = Vectornormieren (Vectorberechnung (enemys[ii].position, target.transform.position));
+					if (Vectorlaenge (Vectorberechnung (enemys[ii].position, target.transform.position)) <= 2f) {
+						print ("Enemy: Spieler vor mir");
+						speedall[ii] = 0;
+						anim.SetBool ("walk", false);
+						if (!inattackall[ii]) {
+							inattackall[ii] = true;
+							InvokeRepeating ("Attack", 0f, 3f);
+						}
+						walkall[ii] = false;
+						CancelInvoke ("Richtungswechsel");
+					} else {
+						walk[ii] = true;
+						speedall[ii] = originalspeed;
+						inattackall[ii] = false;
+						CancelInvoke ("Attack");
+						anim.SetBool ("attack1", false);
+						anim.SetBool ("attack2", false);
+						//anim.SetBool("attack3", false);
+					}
 
+				}
 			}
 		}
 	}
