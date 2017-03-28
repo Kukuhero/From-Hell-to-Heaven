@@ -16,6 +16,7 @@ public class CharacterController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		transform.FindChild ("Camera").gameObject.SetActive( false);
+		Menu.transform.GetChild (0).GetComponent<InventarControl> ().Enabled (false);
 		Menu.enabled = false;
         speed = transform.GetComponent<CharacterStats>().speed;
         if (transform.GetComponent<Inventar>().inventar[0] != null)
@@ -41,12 +42,14 @@ public class CharacterController : MonoBehaviour {
 		{
 			if (Menu.enabled == true) {
 				Cursor.visible = false;
+				Menu.transform.GetChild (0).GetComponent<InventarControl> ().Enabled (false);
 				Menu.enabled = false;
 				transform.FindChild ("Camera").gameObject.SetActive(false);
 			} else 
 			{
 				transform.FindChild ("Camera").gameObject.SetActive(true);
 				Menu.enabled = true;
+				Menu.transform.GetChild (0).GetComponent<InventarControl> ().Enabled (true);
 				Cursor.visible = true;
 			}
 		}

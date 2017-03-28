@@ -41,4 +41,31 @@ public class InventarControl : MonoBehaviour {
 
 	}
 
+	public void Enabled(bool on)
+	{
+		for(int i = 0; i < Inventar.GetComponent<Inventar> ().number && Inventar.GetComponent<Inventar> ().inventar [i] != null; i++)
+		{
+			//print ("Length: "+ inventarSlots.Length + ", i: " + i);
+			//print ( Inventar.GetComponent<Inventar> ().number);
+			//print (Inventar.GetComponent<Inventar> ().inventar [i].GetComponent<WaffenStats> ().Picture);
+			inventarSlots [i] = Inventar.GetComponent<Inventar>().inventar[i].GetComponent<WaffenStats>().Picture;
+			//print (pictureArray[i].gameObject.GetComponentInChildren<Image> ().gameObject);
+			pictureArray[i].GetChild(0).GetComponent<Image> ().sprite = inventarSlots [i];
+		}
+		
+		for (int i = 0; i <  Inventar.GetComponent<Inventar> ().number && Inventar.GetComponent<Inventar> ().inventar [i] != null; i++) {
+			print (pictureArray [i].GetChild (0).name);
+			if (on) {
+				if (pictureArray [i].GetChild (0) != null) {
+					pictureArray [i].GetChild (0).gameObject.SetActive (true);
+				}
+			} else {
+				if (pictureArray [i].GetChild (0) != null) {
+					pictureArray [i].GetChild (0).gameObject.SetActive (false);
+					//transform.root.transform.gameObject.SetActive (false);
+				}
+			}
+		}
+	}
+
 }

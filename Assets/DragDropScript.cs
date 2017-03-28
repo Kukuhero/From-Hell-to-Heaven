@@ -30,9 +30,14 @@ public class DragDropScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 		{
 			if (eventData.pointerCurrentRaycast.gameObject != null) 
 			{
+				print (eventData.pointerCurrentRaycast.gameObject.name);
 				if (eventData.pointerCurrentRaycast.gameObject.tag == "Slot") 
 				{
 					transform.position = eventData.pointerCurrentRaycast.gameObject.transform.position;
+					//if (eventData.pointerCurrentRaycast.gameObject.transform.GetChild (0) = null) 
+					{
+						itemBeingDragged.transform.SetParent (eventData.pointerCurrentRaycast.gameObject.transform);
+					}
 				} else {
 					Mousex = Input.mousePosition.x;
 					Mousey = Input.mousePosition.y;
